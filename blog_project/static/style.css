@@ -1,0 +1,18 @@
+body {
+    padding-top: 70px; /* To ensure content doesn't overlap with the navbar */
+  }
+
+  footer {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px; /* Add space between content and footer */
+  }
+  footer a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
