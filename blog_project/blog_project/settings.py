@@ -63,11 +63,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
 ]
-
+#'landmarks.context_processor.categories',
 WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 
@@ -123,8 +124,8 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-#LOGIN_REDIRECT_URL = '/'
-#LOGOUT_REDIRECT_URL = '/'
+#LOGIN_REDIRECT_URL = '/landmarks/home/'
+#LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'

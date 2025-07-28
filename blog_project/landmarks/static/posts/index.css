@@ -1,0 +1,9 @@
+.card img {
+    height: 200px; /* Set a fixed height for images */
+    object-fit: cover;
+  }
+  
+  .read-more-btn {
+    display: inline-block;
+    margin-top: 15px;
+  }

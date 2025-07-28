@@ -1,0 +1,11 @@
+<div class="col">
+    <div class="card h-100">
+        <img src="{{landmark.images.url}}" class="card-img-top" alt="Post Image">
+        <div class="card-body">
+        <h5 class="card-title">{{ landmark.name }}</h5>
+        <p class="card-text">Published on: January 15, 2023</p>
+        <p class="card-text">{{ landmark.description|truncatewords:10 }}</p>
+        <a href="{% url 'single_place' landmark.id %}" class="btn btn-primary read-more-btn">Read More</a>
+        </div>
+    </div>
+</div>

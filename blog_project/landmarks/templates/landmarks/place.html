@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} <title>{{ landmark.name }}</title> {% endblock title %}
+
+{% block content %}
+  <!-- Single Post Section -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Post Title and Date -->
+        <h1 class="mb-4">{{ landmark.name }}</h1>
+        <p class="text-muted">Published on: {{landmark.created}}</p>
+
+        <!-- Post Image -->
+        <img src="{{landmark.images.url}}" class="img-fluid rounded mb-4" alt="Post Image">
+
+        <!-- Post Content -->
+        <div class="post-content">
+          <p>{{ landmark.description }}</p>
+          
+        </div>
+
+        <!-- Related Tags -->
+        <div class="mt-5">
+          <h4>Related Tags:</h4>
+          {% for tag in tags %}
+          <a href=# class="tag">{{ tag.title }}</a>
+          {% endfor %}
+        </div>
+
+        <!-- Comment Section (Can't send files)-->
+        <div class="comment-section mt-5">
+          <h4>Comments</h4>
+
+          <!-- Existing Comments -->
+          <ul class="comment-list">
+            {% for comment in comments %}
+              <li class="comment-item">
+                <div class="comment-author">{{ comment.user }}</div>
+                <p>{{ comment.created }}</p>
+                <p>{{ comment.text }}</p>
+              </li>
+            {% endfor %}
+          </ul>
+
+          <!-- Add Comment Form -->
+           {% if user.is_authenticated %}
+            <div class="comment-form">
+              <h5>Leave a Comment</h5>
+              <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-primary">Submit Comment</button>
+              </form>
+            </div>
+          {% else %}
+            <h4 class="text-danger">Please login to commit comment</h4>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

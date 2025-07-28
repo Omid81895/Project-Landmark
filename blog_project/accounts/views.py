@@ -11,12 +11,12 @@ def register_user(request):
             form = RegisterForm(request.POST)
             if form.is_valid():
                 form.save()
-                return redirect('posts:home')
+                return redirect('home')
         else:
             form = RegisterForm()
         return render(request, 'accounts/register.html', {'form': form})
     else:
-        return redirect('posts:home')
+        return redirect('home')
 
 def login_user(request):
     if not request.user.is_authenticated:
@@ -34,14 +34,14 @@ def login_user(request):
 
                 if user != None:
                     login(request, user)
-                    return redirect('posts:home')
+                    return redirect('home')
                 else:
                     return HttpResponse("User Not Found!!!")
         else:
             form = LoginForm()
         return render(request, 'accounts/login.html', {'form': form})
     else:
-        return redirect('posts:home')
+        return redirect('home')
 
 
 def logout_user(request):
