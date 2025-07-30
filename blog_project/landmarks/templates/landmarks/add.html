@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{% block title %}<title>Add</title>{% endblock title %}
+{%block content%}
+<div class="container-fluid">
+    <div class="row justify-content-center ps-5">
+        <h1>Add Task</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            {{form.name.label_tag}}
+            {{ form.name }}
+            {{form.description.label_tag}}
+            {{ form.description }}
+            {{form.tag.label_tag}}
+            {{form.tag}}
+            {{form.images.label_tag}}
+            {{form.images}}
+            
+            <div><input class="btn btn-success mt-5" type="submit" value="submit"></div>
+        </form>
+    </div>
+    </div>
+{%endblock content%}

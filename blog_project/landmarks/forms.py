@@ -1,6 +1,20 @@
 from django import forms
-from .models import Comment
+from .models import Comment, Landmark
 
+class LandmarkForm(forms.ModelForm):
+    class Meta:
+        model = Landmark
+        fields = '__all__'
+        exclude =['created']
+        widgets = {
+            'name': forms.TextInput({
+                'class': 'form-control'
+            }),
+            'description': forms.Textarea({
+                'class': 'form-control'
+            }),
+            'tag': forms.CheckboxSelectMultiple
+        }
 
 class CommentForm(forms.ModelForm):
     class Meta:

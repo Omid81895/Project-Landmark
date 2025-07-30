@@ -4,7 +4,7 @@ from .models import Landmark,Tag
 from django.core.paginator import Paginator
 from django.template.response import TemplateResponse
 from django.shortcuts import get_object_or_404
-from .forms import CommentForm
+from .forms import CommentForm, LandmarkForm
 # Create your views here. action = "{%url 'posts:search' %}" base.html
 # "{% url 'posts:tag_posts' tag.id %}" for place.html
 def home(request):
@@ -35,4 +35,13 @@ def landmark(request,id):
                                                             'comments': comments,
                                                             'tags': tags
                                                             })
+def add(request):
+    if request.method == 'POST':
+        form = LandmarkForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'landmarks/add.html', {'form': form})
+    else:
+        form = LandmarkForm()
+    return render(request, 'landmarks/add.html', {'form': form})
 

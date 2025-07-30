@@ -21,8 +21,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+
         <!-- Left Side: Categories Dropdown -->
         <ul class="navbar-nav me-auto">
+          <li><a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/landmarks/home/">Home</a></li>
+          <li><a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/landmarks/add/">Add</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categories
@@ -53,7 +56,7 @@
               <a class="nav-link" href="{% url 'logout' %}">logout</a>
             </li>
             <li class="nav-item">
-              <p>Hello {{ user.username }} </p>
+              <p class="fw-bolder">Hello {{ user.username }} </p>
             </li>
           {% endif %}
         </ul>
