@@ -1,2 +1,4 @@
+from .models import Tag
 def categories(request):
-    pass
+    tags = Tag.objects.all()
+    return{'tags': tags}

@@ -26,7 +26,7 @@
         <div class="mt-5">
           <h4>Related Tags:</h4>
           {% for tag in tags %}
-          <a href=# class="tag">{{ tag.title }}</a>
+          <a href="{%url 'read' tag.id%}" class="tag">{{ tag.title }}</a>
           {% endfor %}
         </div>
 

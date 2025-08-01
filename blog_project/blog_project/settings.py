@@ -63,12 +63,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+                'landmarks.context_processor.categories',
             ],
         },
     },
 ]
-#'landmarks.context_processor.categories',
 WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 

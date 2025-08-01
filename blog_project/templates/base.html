@@ -31,8 +31,8 @@
               Categories
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              {% for category in categories %}
-                <li><a class="dropdown-item" href="#">{{ category }}</a></li>
+              {% for tag in tags %}
+                <li><a class="dropdown-item" href="{%url 'read' tag.id%}">{{ tag }}</a></li>
               {% endfor %}
             </ul>
           </li>
@@ -68,14 +68,14 @@
 {% block content %}{% endblock content %}
 
   <!-- Footer -->
-  <footer>
+  <footer class="bg-info">
     <div class="container">
       <p>&copy; 2023 My Blog. All rights reserved.</p>
       <p>
-        <a href="#">About</a> |
-        <a href="#">Contact</a> |
-        <a href="#">Privacy Policy</a> |
-        <a href="#">Terms of Service</a>
+        <a href="#" class="link-secondary">About</a> |
+        <a href="#" class="link-secondary">Contact</a> |
+        <a href="#" class="link-secondary">Privacy Policy</a> |
+        <a href="#" class="link-secondary">Terms of Service</a>
       </p>
     </div>
   </footer>

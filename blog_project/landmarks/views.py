@@ -44,4 +44,11 @@ def add(request):
     else:
         form = LandmarkForm()
     return render(request, 'landmarks/add.html', {'form': form})
+def filter_read(request, id):
+    tag = Tag.objects.get(id=id)
+    landmarks = tag.landmark_set.all()
+    page_number = request.GET.get('page', 1)
+    paginator = Paginator(landmarks, 3)
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'landmarks/filter.html', {'landmarks': page_obj, 'paginator': paginator})
 

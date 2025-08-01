@@ -5,7 +5,7 @@
 - [x] Show Posts List & Details Page
 - [x] Ability to leave a Comment
 - [x] User Authentication
-- [ ] Tagging and Filtering by Tags
+- [x] Tagging and Filtering by Tags
 - [x] Display and upload media locally
 
 ------------------------------------------------------------------------------------
@@ -17,6 +17,6 @@
 - [x] نمایش لیست پست‌ها و صفحه‌ی جزئیات
 - [x] امکان گذاشتن نظر
 - [x] احراز هویت کاربران
-- [ ] تگ‌گذاری و فیلتر بر اساس تگ‌ها
+- [x] تگ‌گذاری و فیلتر بر اساس تگ‌ها
 - [x] نمایش و آپلود مدیا در حالت local
 
