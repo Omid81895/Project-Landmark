@@ -5,4 +5,5 @@ urlpatterns =[
     path('<int:id>/', views.landmark, name='single_place'),
     path('add/', views.add, name= 'add'),
     path('tag/<int:id>', views.filter_read, name= 'read'),
+    path('search', views.search, name= 'search'),
 ]

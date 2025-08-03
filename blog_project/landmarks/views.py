@@ -5,8 +5,8 @@ from django.core.paginator import Paginator
 from django.template.response import TemplateResponse
 from django.shortcuts import get_object_or_404
 from .forms import CommentForm, LandmarkForm
+from django.db.models import Q
 # Create your views here. action = "{%url 'posts:search' %}" base.html
-# "{% url 'posts:tag_posts' tag.id %}" for place.html
 def home(request):
     page_number = request.GET.get('page', 1)
     landmarks = Landmark.objects.all().order_by('id')
@@ -47,6 +47,14 @@ def add(request):
 def filter_read(request, id):
     tag = Tag.objects.get(id=id)
     landmarks = tag.landmark_set.all()
+    page_number = request.GET.get('page', 1)
+    paginator = Paginator(landmarks, 3)
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'landmarks/filter.html', {'landmarks': page_obj, 'paginator': paginator})
+
+def search(request):
+    query = request.GET['query']
+    landmarks = Landmark.objects.filter(Q(name__icontains = query)|Q(description__icontains = query))
     page_number = request.GET.get('page', 1)
     paginator = Paginator(landmarks, 3)
     page_obj = paginator.get_page(page_number)
