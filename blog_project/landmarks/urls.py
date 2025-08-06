@@ -6,4 +6,5 @@ urlpatterns =[
     path('add/', views.add, name= 'add'),
     path('tag/<int:id>', views.filter_read, name= 'read'),
     path('search', views.search, name= 'search'),
+    path('set/', views.set_cookie, name = 'set'),
 ]

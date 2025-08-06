@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 # Create your models here.
 class Tag(models.Model):
     title = models.CharField(max_length=255)
@@ -21,3 +22,16 @@ class Comment(models.Model):
     file = models.FileField(upload_to='userdata' ,blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+class PickTheme(models.Model):
+    themes = (
+        ('Light Mode', 'light'),
+        ('Dark Mode', 'dark'),
+    )
+    picktheme_id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    theme = models.CharField(max_length=255, choices=themes)
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['user'], name='One Entry Per User')
+        ]

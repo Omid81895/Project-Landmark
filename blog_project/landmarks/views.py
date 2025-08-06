@@ -60,3 +60,10 @@ def search(request):
     page_obj = paginator.get_page(page_number)
     return render(request, 'landmarks/filter.html', {'landmarks': page_obj, 'paginator': paginator})
 
+def set_cookie(request):
+    if request.method == "POST":
+        theme = request.POST.get('theme', 'light')
+        response = redirect('home')
+        response.set_cookie('theme', theme, max_age= 7*24*60*60)
+        return response
+

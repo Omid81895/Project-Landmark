@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="{% if theme == 'dark' %}dark{% else %}light{% endif %}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,6 +35,14 @@
                 <li><a class="dropdown-item" href="{%url 'read' tag.id%}">{{ tag }}</a></li>
               {% endfor %}
             </ul>
+          </li>
+          <li>
+            <form action="{% url 'set' %}" method="post">
+              {% csrf_token %}
+              <input type="radio" name="theme" value="dark" {% if theme == 'dark' %}checked{% endif %}>dark
+              <input type="radio" name="theme" value="light" {% if theme == 'light' %}checked{% endif %}>light
+              <input type="submit" value="change theme">
+            </form>
           </li>
         </ul>
 
